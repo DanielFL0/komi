@@ -2,8 +2,6 @@
 
 sudo dnf update -y
 sudo dnf install git wget unzip screen -y
-sudo dnf groupinstall "Development Tools" -y
-sudo dnf install wget tar gcc gcc-c++ make -y
 
 echo "Dosan's Minecraft Hosting Script!"
 
@@ -31,3 +29,12 @@ echo "eula=true" > eula.txt
 
 # Make server executable
 chmod +x bedrock_server
+
+# Launch server in a detached screen session
+if command -v screen >/dev/null 2>&1; then
+    screen -dmS mc_server ./bedrock_server
+    echo "Minecraft Bedrock server started in a screen session named 'mc_server'..."
+else
+    echo "Screen not found. Starting server in the foreground..."
+    ./bedrock_server
+fi
