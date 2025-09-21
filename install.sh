@@ -1,7 +1,9 @@
 #!/bin/bash
 
 sudo dnf update -y
-sudo dnf install -y git wget unzip screen
+sudo dnf install git wget unzip screen -y
+sudo dnf groupinstall "Development Tools" -y
+sudo dnf install wget tar gcc gcc-c++ make -y
 
 echo "Dosan's Minecraft Hosting Script!"
 
