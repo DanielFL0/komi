@@ -29,12 +29,3 @@ echo "eula=true" > eula.txt
 
 # Make server executable
 chmod +x bedrock_server
-
-# Launch server in a detached screen session
-if command -v screen >/dev/null 2>&1; then
-    screen -dmS mc_server ./bedrock_server
-    echo "Minecraft Bedrock server started in a screen session named 'mc_server'..."
-else
-    echo "Screen not found. Starting server in the foreground..."
-    ./bedrock_server
-fi
