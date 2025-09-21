@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo dnf update -y
+sudo dnf install -y git wget unzip screen
+
 echo "Dosan's Minecraft Hosting Script!"
 
 # Variables
