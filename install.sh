@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo dnf update -y
-sudo dnf install git wget unzip screen -y
+sudo apt update -y
+sudo apt install git wget unzip screen -y
 
 echo "Dosan's Minecraft Hosting Script!"
 
