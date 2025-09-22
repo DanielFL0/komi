@@ -2,7 +2,7 @@
 
 sudo apt update -y
 sudo apt install git wget unzip screen -y
-sudo apt install openjdk-17-jdk -y
+sudo apt install openjdk-21-jdk -y
 
 java -version
 
