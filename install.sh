@@ -2,39 +2,27 @@
 
 sudo apt update -y
 sudo apt install git wget unzip screen -y
+sudo apt install openjdk-17-jdk -y
+
+java -version
 
 echo "Dosan's Minecraft Hosting Script!"
 
 # Variables
-MC_VERSION="1.21.102.1"
-MC_DIR="$HOME/mc-bedrock-server"
-DOWNLOAD_URL="https://www.minecraft.net/bedrockdedicatedserver/bin-linux/bedrock-server-$MC_VERSION.zip"
+MC_DIR="$HOME/mc-spigot"
+DOWNLOAD_URL="https://hub.spigotmc.org/jenkins/job/BuildTools/195/artifact/target/BuildTools.jar"
 
 # Create server directory
 mkdir -p "$MC_DIR" # -p create automatically without raising an error
 cd "$MC_DIR" || exit
 
 # Download the server if not already present
-if [ ! -f "bedrock-server-$MC_VERSION.zip" ]; then
-    echo "Downloading Minecraft Bedrock server version $MC_VERSION..."
-    wget "$DOWNLOAD_URL" -O "bedrock-server-$MC_VERSION.zip"
-fi
+wget "$DOWNLOAD_URL" -O "bedrock-server-$MC_VERSION.zip"
 
-# Unzip the server
-echo "Extracting server..."
-unzip -o "bedrock-server-$MC_VERSION.zip"
+java -jar BuildTools.jar --rev 1.20.1
 
 # Accept EULA
 echo "eula=true" > eula.txt
 
-# Make server executable
-chmod +x bedrock_server
-
-# Launch server in a detached screen session
-if command -v screen >/dev/null 2>&1; then
-    screen -dmS mc_server ./bedrock_server
-    echo "Minecraft Bedrock server started in a screen session named 'mc_server'..."
-else
-    echo "Screen not found. Starting server in the foreground..."
-    ./bedrock_server
-fi
+java -Xms1G -Xmx2G -jar spigot-1.20.1.jar nogui
+echo "Server started. You can now connect to your Minecraft server!"
