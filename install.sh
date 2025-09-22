@@ -9,8 +9,8 @@ java -version
 echo "Dosan's Minecraft Hosting Script!"
 
 # Variables
-MC_DIR="$HOME/mc-spigot"
-$DOWNLOAD_URL="https://api.papermc.io/v2/projects/paper/versions/1.21.1/builds/130/downloads/paper-1.21.1-130.jar" 
+MC_DIR="$HOME/paper-mc"
+$DOWNLOAD_URL="https://fill-data.papermc.io/v1/objects/8de7c52c3b02403503d16fac58003f1efef7dd7a0256786843927fa92ee57f1e/paper-1.21.8-60.jar" 
 
 # Create server directory
 mkdir -p "$MC_DIR" # -p create automatically without raising an error
