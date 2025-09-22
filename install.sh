@@ -24,7 +24,3 @@ if [ ! -s paper.jar ]; then
 fi
 
 echo "eula=true" > eula.txt
-
-echo "Server started. You can now connect to your Minecraft server!"
-
-java -Xms1G -Xmx2G -jar paper.jar nogui
